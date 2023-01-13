@@ -1,18 +1,21 @@
-let b = 1;
+let isblack = true;
 
 function toggleBlack(){
-    b = 1;
+    isblack = true;
+    console.log('black');
 }
 
 function toggleRandom(){
-    b = 0;
+    isblack = false;
+    console.log('random');
 }
 
 function stateChange() {
-    if(b === 1){
-        this.classList.add('hovered');
+    console.log(isblack);
+    if(isblack){
+        this.style.backgroundColor = '#23272B';
     }
-    else{
+    else if(!isblack){
         let r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
         let g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
         let b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
@@ -22,7 +25,7 @@ function stateChange() {
 
 function gridReset(){
     hovered.forEach((box)=>{
-        box.classList.remove('hovered');
+        box.style.backgroundColor = '#fff';
     });
 }
 
@@ -39,10 +42,7 @@ for (let i = 0; i < 12; i++) {
     }
 }
 
-const hovered = document.querySelectorAll('.white-box');
-hovered.forEach((box)=>{
-    box.addEventListener('mouseover', stateChange);
-});
+
 
 const reset = document.getElementById('reset');
 reset.addEventListener('click', gridReset);
@@ -51,4 +51,11 @@ const black = document.getElementById('black');
 black.addEventListener('click', toggleBlack);
 
 const random = document.getElementById('random');
-black.addEventListener('click', toggleRandom);
+random.addEventListener('click', toggleRandom);
+
+const hovered = document.querySelectorAll('.white-box');
+
+
+hovered.forEach((box)=>{
+    box.addEventListener('mouseover', stateChange);
+});
