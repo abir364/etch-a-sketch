@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Etch a Sketch</h1>
+    <div id="wrapper">
+        <h1>Etch a Sketch</h1>
     <div class="main-box">
         <div id="button">
+            <div id="input">
+                <input type="range" min="2" max="100" value="12" step="1" id="grid-size">
+                <span id="value"></span>
+            </div>
             <div class="choice">Choose color</div>
             <button id="black">black</button>
             <button id="random">random</button>
@@ -17,5 +22,7 @@
         </div>
         <div id="container"></div>
     </div>
+    </div>
+    
 </body>
 </html>
