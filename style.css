@@ -55,10 +55,6 @@ body {
     border: .1rem solid #f3e3aa;
 }
 
-.hovered{
-    background-color: #23272B;
-}
-
 button{
     padding: 5px;
     border-radius: 0.5em;
