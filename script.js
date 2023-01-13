@@ -1,25 +1,39 @@
-let isblack = true;
+let isblack = 1;
+let color = '#23272B';
+let sat = 95;
 
 function toggleBlack(){
-    isblack = true;
-    console.log('black');
+    isblack = 1;
+    color = '#23272B';
 }
 
 function toggleRandom(){
-    isblack = false;
-    console.log('random');
+    isblack = 2;
+}
+
+function toggleShader(){
+    isblack = 3;
+    if(sat>=15){
+        sat = sat - 10;
+    }
+    else if(sat===5){
+        sat = 95;
+    }
+    color = `hsl(210, 10%, ${sat}%)`;
 }
 
 function stateChange() {
-    console.log(isblack);
-    if(isblack){
-        this.style.backgroundColor = '#23272B';
+    if(isblack===1){
+        this.style.backgroundColor = color;
     }
-    else if(!isblack){
+    else if(isblack === 2){
         let r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
         let g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
         let b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
         this.style.backgroundColor = `rgb(${r},${g},${b})`;
+    }
+    else if(isblack === 3){
+        this.style.backgroundColor = color;
     }
 }
 
@@ -47,6 +61,9 @@ function generateGrid(size){
 
     const random = document.getElementById('random');
     random.addEventListener('click', toggleRandom);
+
+    const shader = document.getElementById('shader');
+    shader.addEventListener('click', toggleShader);
 
     const hovered = document.querySelectorAll('.white-box');
 

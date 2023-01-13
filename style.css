@@ -187,3 +187,17 @@ h1{
     -webkit-transition: opacity .15s ease-in-out;
     transition: opacity .15s ease-in-out;
 }
+
+#shader{
+    background-color: #606264;
+    
+}
+
+#shader:hover{
+    background-color: #4a4c4e;
+}
+
+#shader:active{
+    background-color: #606264;
+    transform: translateY(3px);
+}
